@@ -1,0 +1,13 @@
+/*
+	 * Class Rectangle represent the geometric rectangle shape. It has a width and a height.
+	 * It also has the following behavior:
+	 * 1. Two constructors, default, width and height = 1, and a constructor that allows creating a 
+	 * a rectangle using passed values for width and height
+	 * 2. A method to compute the area, which equals width*height
+	 * 3. A method to print the rectangle in the format:
+	 *  width = widthValue, height = heightValue, area = areaValue
+	 * Constraints:
+	 * A. Class Rectangle and it's Width and height values are accessible by any class
+	 * B. Width and height should be in the range [1,20]  
+	 */
+	 
