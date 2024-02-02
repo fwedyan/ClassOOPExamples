@@ -11,7 +11,11 @@ package m;
  * A. Class Rectangle and it's Width and height values are accessible by any class
  * B. Width and height should be in the range [1,20]  
  */
-
+/*
+ * Test cases: inputs and expected output(s)
+ * Pre-conditions: conditions that should hold
+ * Problem specifications
+ */
 public class Rectangle {
 	private int height=1;  // explain what it means ...
 	private int width=1;
