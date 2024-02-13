@@ -1,12 +1,22 @@
 package m;
+/**
+ * Represent a Circle with basic math operations
+ * @author Fadi Wedyan
+ * @version 1
+ */
 
 public class Circle {
 	double radius;
-	/** Construct a circle object */
+	/** 
+	 * default Constructor of a circle object 
+	 * 
+	*/
 	Circle() {
 		radius =1;
 	}
-	/** Construct a circle with a specified radius */
+	/** 
+	 * Construct a circle with a specified radius
+	 *  */
 	Circle(double newRadius) {
 	radius = newRadius;
     }
