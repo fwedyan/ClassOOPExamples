@@ -11,28 +11,37 @@ public class MyReader {
 	 * @precondition a and b are integer, a<=b
 	 * @postcondition: the function "always" returns an integer within [a,b] 
 	 */
-	public static int readInt(int a, int b) throws Exception {
+	public static int readInt(int a, int b, String msg) throws Exception {
 		if (a>b) {
 			throw new Exception("a should be less than or equal to b");
 		}
 		Scanner in = new Scanner(System.in);
-		System.out.print("Please enter a value in ["+a+","+b+"]:");
+		msg +=" in ["+a+","+b+"]:";
+		System.out.print(msg);
 		int value=0;
 		//what if input is out of range
 		do {
-			value = in.nextInt();
-			if (value<a || value >b) {
-				System.out.print("Please enter a value in ["+a+","+b+"]:");				
+			try {
+				value = in.nextInt();
+				if (value<a || value >b) {
+					System.out.print(msg);				
+				}
+				else
+					break;		
+			} catch (Exception e) {
+				in.nextLine();
+				System.out.print("Incorrect input,"+msg);			
 			}
-			else
-				break;		
+			
 		}while (true);
 		
 		return value;
 	}
+	
 	public static void main(String[] args) {
          try {
-			readInt(1,5);
+			readInt(1,5, "please enter a grade value ");
+			//readInt(33, 33338, "");
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
