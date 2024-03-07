@@ -16,7 +16,7 @@ package m;
  * Pre-conditions: conditions that should hold
  * Problem specifications
  */
-public class Rectangle {
+public class Rectangle extends  Object {
 	private int height=1;  // explain what it means ...
 	private int width=1;
 	public Rectangle() throws Exception{
@@ -26,6 +26,17 @@ public class Rectangle {
 	public Rectangle(int height, int width) throws Exception {
 		setWidth(width);
 		setHeight(height);
+	}
+	
+	/**
+	 * Called copy constructor, the created object will be a copy of the passed object
+	 * @param rectangle
+	 * @throws Exception 
+	 */
+	public Rectangle(Rectangle rectangle) throws Exception {
+		//shallow copy
+		setWidth(rectangle.getWidth());
+		setHeight(rectangle.getHeight());
 	}
 	
 	public void print() {
@@ -47,7 +58,7 @@ public class Rectangle {
 		return height>=1 && height <= 20;
 	}
 	/**
-	 * @return the value is set if valid [1,20], othewise, the method does nothing
+	 * @return the value is set if valid [1,20], otherwise, the method does nothing
 	 */
 	public void setWidth(int width) {
 		//if (width >=1  &&  width<=20  )
@@ -60,24 +71,54 @@ public class Rectangle {
 		else
 			throw new Exception(height + " is invalid height value, should be in the range [1,20]");
 	}
+	/*
+	 * Method override: occurs when a sub-class re-implements a method it inherits from
+	 * one of it's super classes
+	 * 
+	 */
+	public String toString() {
+		return "width = "+this.width+ " , height = "+ this.height;
+	}
+	/**
+	 * Two rectangles are equal if they have the same width and height
+	 */
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Rectangle))
+			return false;
 	
+		Rectangle rectangle = (Rectangle) obj; //type casting
+		
+		if (this.width == rectangle.width && this.height==rectangle.height) {
+			return true;
+		}
+		return false;
+	}
 	
     public static void main(String s[] ){
        Rectangle r1;
 	try {
-		Rectangle test1 = new Rectangle(5,10);
-		Rectangle test2 = new Rectangle(20,30);
-		test1 = test2;
-		
-				
-		r1 = new Rectangle(-5,10);
-		 r1.print();
-	       r1.setWidth(2000);
-	       System.out.println("r1 width ="+ r1.getWidth());
-	       Rectangle r2 = new Rectangle(5,4);
-	       r2.print();
-	       Rectangle r3 = new Rectangle(-1, 1000);
-	       r3.print();
+		Rectangle test1 = new Rectangle(5,5);
+		Rectangle test2 = new Rectangle(5,5);
+		test1 = new Rectangle(test2); //this is a reference copy, we are copying the address of the object
+		//test1.setHeight(9);
+		test2.print();
+		System.out.println("test2: "+test2);
+		//compare objects
+		if (test1.equals(test2)) {
+			//it does not work as it should, why? Because it compares two memory address, not
+			//the values in the objects
+			System.out.println("they are equal");
+		}
+		if (test1==test2) {
+			System.out.println("they are equal according to ==");
+		}else
+			System.out.println("they are not equal accroding to ==");
+		/*
+		 * r1 = new Rectangle(-5,10); r1.print(); r1.setWidth(2000);
+		 * System.out.println("r1 width ="+ r1.getWidth()); Rectangle r2 = new
+		 * Rectangle(5,4); r2.print(); Rectangle r3 = new Rectangle(-1, 1000);
+		 * r3.print();
+		 */
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		System.out.println(e);
