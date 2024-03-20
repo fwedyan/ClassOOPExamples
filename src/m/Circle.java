@@ -5,7 +5,7 @@ package m;
  * @version 1
  */
 
-public class Circle {
+public class Circle extends Shape{
 	double radius;
 	/** 
 	 * default Constructor of a circle object 
@@ -21,7 +21,7 @@ public class Circle {
 	radius = newRadius;
     }
 	/** Return the area of this circle */
-	double getArea() {
+	public double getArea() {
 		return radius * radius * Math.PI;
 	}
 	public static void main(String args[]) {

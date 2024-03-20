@@ -16,14 +16,24 @@ package m;
  * Pre-conditions: conditions that should hold
  * Problem specifications
  */
-public class Rectangle extends  Object {
+public class Rectangle extends  Shape {
 	private int height=1;  // explain what it means ...
 	private int width=1;
+	
 	public Rectangle() throws Exception{
 		//width=height =1;
-		this(1,1); //can only be in a constructor, has to be the first statement in the constructor
+	    this(1,1); //can only be in a constructor, has to be the first statement in the constructor
 	}
 	public Rectangle(int height, int width) throws Exception {
+		super(); //even if we do not write this statement, it's implicity executed or called when
+		//we call the subclass constructor
+		setWidth(width);
+		setHeight(height);
+	}
+	
+	
+	public Rectangle(String color, boolean filled, int height, int width) throws Exception {
+		super(color, filled);
 		setWidth(width);
 		setHeight(height);
 	}
@@ -35,16 +45,19 @@ public class Rectangle extends  Object {
 	 */
 	public Rectangle(Rectangle rectangle) throws Exception {
 		//shallow copy
+		super(rectangle.getColor(), rectangle.isFilled());
 		setWidth(rectangle.getWidth());
 		setHeight(rectangle.getHeight());
 	}
 	
-	public void print() {
-		System.out.println("width = "+this.width+ " , height = "+ this.height+ " , area ="+this.area());		
-	}
-	public int area() {
+	public double getArea() {
 		return this.height * this.width;
 	}
+	
+	public void print() {
+		System.out.println("width = "+this.width+ " , height = "+ this.height+ " , area ="+this.getArea());		
+	}
+	
 	public int getWidth() {
 		return this.width;
 	}
@@ -77,7 +90,8 @@ public class Rectangle extends  Object {
 	 * 
 	 */
 	public String toString() {
-		return "width = "+this.width+ " , height = "+ this.height;
+		super.toString();
+		return super.toString()+ " width = "+this.width+ " , height = "+ this.height;
 	}
 	/**
 	 * Two rectangles are equal if they have the same width and height
@@ -95,24 +109,41 @@ public class Rectangle extends  Object {
 	}
 	
     public static void main(String s[] ){
-       Rectangle r1;
+    //   Rectangle r1;
 	try {
-		Rectangle test1 = new Rectangle(5,5);
-		Rectangle test2 = new Rectangle(5,5);
-		test1 = new Rectangle(test2); //this is a reference copy, we are copying the address of the object
-		//test1.setHeight(9);
-		test2.print();
-		System.out.println("test2: "+test2);
-		//compare objects
-		if (test1.equals(test2)) {
-			//it does not work as it should, why? Because it compares two memory address, not
-			//the values in the objects
-			System.out.println("they are equal");
-		}
-		if (test1==test2) {
-			System.out.println("they are equal according to ==");
-		}else
-			System.out.println("they are not equal accroding to ==");
+	//	Rectangle test1 = new Rectangle(5,5);
+	//	Rectangle test2 = new Rectangle(5,5);
+		//Shape shape = new Shape();
+		// a super class reference can have objects of any of it's sub classes
+		/**
+		 * method matching: performed at compile time, make sure the called method belongs to the class
+		 * 	method binding: performed at run time, the compiler finds which version of the method to call
+		 * 
+		 */
+		
+	
+		Shape shape = new Rectangle(10,5);
+	//	shape.getWidth(10);
+		
+		
+		System.out.println(shape.getArea());
+		System.out.println(shape);
+		
+		shape = new Circle(2);
+		System.out.println(shape.getArea());
+		System.out.println(shape);
+		
+	//	System.out.println(test1);
+		/*
+		 * test1 = new Rectangle(test2); //this is a reference copy, we are copying the
+		 * address of the object //test1.setHeight(9); test2.print();
+		 * System.out.println("test2: "+test2); //compare objects if
+		 * (test1.equals(test2)) { //it does not work as it should, why? Because it
+		 * compares two memory address, not //the values in the objects
+		 * System.out.println("they are equal"); } if (test1==test2) {
+		 * System.out.println("they are equal according to =="); }else
+		 * System.out.println("they are not equal accroding to ==");
+		 */
 		/*
 		 * r1 = new Rectangle(-5,10); r1.print(); r1.setWidth(2000);
 		 * System.out.println("r1 width ="+ r1.getWidth()); Rectangle r2 = new
