@@ -1,4 +1,7 @@
 package m;
+
+import java.util.ArrayList;
+
 /*
  * Class Rectangle represent the geometric rectangle shape. It has a width and a height.
  * It also has the following behavior:
@@ -16,7 +19,8 @@ package m;
  * Pre-conditions: conditions that should hold
  * Problem specifications
  */
-public class Rectangle extends  Shape {
+public class Rectangle extends  Shape implements Comparable {
+	
 	private int height=1;  // explain what it means ...
 	private int width=1;
 	
@@ -111,6 +115,8 @@ public class Rectangle extends  Shape {
     public static void main(String s[] ){
     //   Rectangle r1;
 	try {
+		ArrayList<Rectangle> arr = new ArrayList<Rectangle>(200)
+				; 
 	//	Rectangle test1 = new Rectangle(5,5);
 	//	Rectangle test2 = new Rectangle(5,5);
 		//Shape shape = new Shape();
@@ -156,4 +162,19 @@ public class Rectangle extends  Shape {
 	}
       
     }
+	@Override
+	/**
+	 * Rectangles will be compared using their size
+	 */
+	public int compareTo(Object o) {
+		Rectangle ref = (Rectangle) o;
+		if (this.getArea() > ref.getArea())
+			return 1;
+		if (this.getArea() == ref.getArea())
+			return 0;
+		return -1;
+		
+		
+
+	}
 }
