@@ -1,6 +1,7 @@
-package m;
+package m.shapes;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /*
  * Class Rectangle represent the geometric rectangle shape. It has a width and a height.
@@ -172,9 +173,8 @@ public class Rectangle extends  Shape implements Comparable {
 			return 1;
 		if (this.getArea() == ref.getArea())
 			return 0;
-		return -1;
-		
-		
-
+	    return -1;		
 	}
 }
+
+

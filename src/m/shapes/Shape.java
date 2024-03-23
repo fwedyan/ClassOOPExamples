@@ -1,4 +1,4 @@
-package m;
+package m.shapes;
 
 public abstract class Shape {
 	private String color;

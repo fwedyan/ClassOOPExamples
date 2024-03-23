@@ -1,4 +1,4 @@
-package m;
+package m.shapes;
 /**
  * Represent a Circle with basic math operations
  * @author Fadi Wedyan
