@@ -4,6 +4,11 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+/**
+ * Run with the following JV argument:
+ * --module-path "c:\jars\javafx-sdk-22\lib" --add-modules javafx.controls,javafx.fxml
+ */
+
 
 public class MyJavaFX extends Application {
   @Override // Override the start method in the Application class

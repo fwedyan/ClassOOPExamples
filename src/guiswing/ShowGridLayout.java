@@ -14,7 +14,7 @@ public class ShowGridLayout extends JFrame {
 	public ShowGridLayout() {
 		// Set GridLayout, 3 rows, 2 columns, and gaps 5 between
 		// components horizontally and vertically
-		setLayout(new GridLayout(3, 2, 5, 5));
+		setLayout(new GridLayout(0, 2, 5, 5));
 
 		// Add labels and text fields to the frame
 		add(new JLabel("First Name"));
@@ -35,5 +35,6 @@ public class ShowGridLayout extends JFrame {
 		frame.setLocationRelativeTo(null); // Center the frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.pack();
 	}
 }

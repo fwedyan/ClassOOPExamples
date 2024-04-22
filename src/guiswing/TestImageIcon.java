@@ -8,17 +8,17 @@ public class TestImageIcon extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ImageIcon usIcon = new ImageIcon("image/us.gif");
-	private ImageIcon myIcon = new ImageIcon("image/my.jpg");
-	private ImageIcon frIcon = new ImageIcon("image/fr.gif");
-	private ImageIcon ukIcon = new ImageIcon("image/uk.gif");
+	//use forward slash (even for windows)
+	private ImageIcon usIcon = new ImageIcon("C:/Users/fwedyan/Pictures/usflag.jpg");
+	
 
 	public TestImageIcon() {
-		setLayout(new GridLayout(1, 4, 5, 5));
+		setLayout(new GridLayout(1, 2, 5, 5));
 		add(new JLabel(usIcon));
-		add(new JLabel(myIcon));
-		add(new JButton(frIcon));
-		add(new JButton(ukIcon));
+		JButton jbt = new JButton( usIcon);
+		add(jbt);
+		
+	
 	}
 
 	/** Main method */

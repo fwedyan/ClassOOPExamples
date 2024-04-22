@@ -12,7 +12,7 @@ public class ShowBorderLayout extends JFrame {
 
 	public ShowBorderLayout() {
 		// Set BorderLayout with horizontal gap 5 and vertical gap 10
-		setLayout(new BorderLayout(5, 10));
+		setLayout(new BorderLayout(2,2));
 
 		// Add buttons to the frame
 		add(new JButton("East"), BorderLayout.EAST);

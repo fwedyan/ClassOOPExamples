@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import javafx.scene.control.Tooltip;
+
 public class TestSwingCommonFeatures extends JFrame {
 	/**
 	 * 
@@ -19,6 +21,7 @@ public class TestSwingCommonFeatures extends JFrame {
 		jbtLeft.setBackground(Color.WHITE);
 		jbtCenter.setForeground(Color.GREEN);
 		jbtRight.setToolTipText("This is the Right button");
+		
 		p1.add(jbtLeft);
 		p1.add(jbtCenter);
 		p1.add(jbtRight);

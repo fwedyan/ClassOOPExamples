@@ -34,5 +34,7 @@ public class ShowFlowLayout extends JFrame {
 		frame.setLocationRelativeTo(null); // Center the frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.pack();
+		frame.setResizable(false);
 	}
 }
