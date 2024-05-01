@@ -14,7 +14,10 @@ public class Story {
         sentences.add(sentence);
     }
     public ArrayList<String> getSentences() {
-        return sentences;
+    	//is this a correct get method?
+    	ArrayList<String> copy = new ArrayList<String>();
+    	copy = (ArrayList<String>) sentences.clone();
+        return copy;
     }
     public void setSentences(ArrayList<String> sentences) {
         this.sentences = sentences;

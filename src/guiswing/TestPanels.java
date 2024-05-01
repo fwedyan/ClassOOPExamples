@@ -25,12 +25,16 @@ public class TestPanels extends JFrame {
 
 		// Create panel p2 to hold a text field and p1
 		JPanel p2 = new JPanel(new BorderLayout());
-		p2.add(new JTextField("Time to be displayed here"), BorderLayout.NORTH);
+		JTextField txtDisplay = new JTextField("Time to be displayed here"); 
+		p2.add(txtDisplay, BorderLayout.NORTH);
+		txtDisplay.setEnabled(false);
+		
 		p2.add(p1, BorderLayout.CENTER);
 
 		// add contents into the frame
 		add(p2, BorderLayout.EAST);
 		add(new JButton("Food to be placed here"), BorderLayout.CENTER);
+		
 	}
 
 	/** Main method */
